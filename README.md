@@ -8,7 +8,7 @@ My directory shortener for bash and zsh prompts inspired by [jonathonball's](htt
 - g++, or any compiler really
 
 ## Compilation
-- run `make`, this will generate a `pwdshort` executable in `~/.local/bin` which you can reference in your shell of choi
+- run `make`, this will generate a `pwdshort` executable in `~/.local/bin` which you can reference in your shell of choice
 
 ## Usage
 You can reference the executable in your shell rc file like so:
@@ -46,12 +46,12 @@ becomes
     ~/.con+/zsh
 
 ## Configuration
-Despite my attempt to make this simple executable fast, it is still configurable through #define directives in main.c, you can change those to tweak the prompt as you like!
+The program it is still configurable from the source code through #define directives in `pwdshort.cpp`, you can change those to tweak the prompt as you like!
 
 ### Config Values
 
 #### `MAXCHAR`
-How much of the original subdirectory name to keep
+How much of the original subdirectory name to keep at most (the last char will be replaced with a TRAILSIGN, and dotfiles are displayed with a character more if DOTFILES is set to true)
 - default: `4`
 
 #### `HOMESIGN`
