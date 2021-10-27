@@ -24,6 +24,9 @@ int main()
   string cwd(_cwd);
   string home(getenv("HOME"));
 
+  if (cwd == home)
+    cout << "~";
+
   if (cwd.rfind(home, 0) == 0) {
     cout << HOMESIGN << SEPARATOR;
     cwd = cwd.substr(home.length() + 1, cwd.length());
