@@ -8,7 +8,7 @@ My directory shortener for bash and zsh prompts inspired by [jonathonball's](htt
 - g++, or any compiler really
 
 ## Compilation
-- `make` this will generate a `pwdshort` executable in `~/.local/bin` which you can reference in your shell of choi
+- run `make`, this will generate a `pwdshort` executable in `~/.local/bin` which you can reference in your shell of choi
 
 ## Usage
 You can reference the executable in your shell rc file like so:
