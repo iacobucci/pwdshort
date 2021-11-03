@@ -16,12 +16,7 @@ void print(string cwd, string home);
 
 int main()
 {
-
-  char _cwd[PATH_MAX];
-  if (getcwd(_cwd, sizeof(_cwd)) == NULL)
-    return -1;
-
-  string cwd(_cwd);
+  string cwd(getenv("PWD"));
   string home(getenv("HOME"));
 
   if (cwd.compare(home) == 0) {
