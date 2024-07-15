@@ -2,10 +2,10 @@
 
 ![Alt text](./screenshot.png?raw=true)
 
-My directory shortener for bash and zsh prompts inspired by [jonathonball's](https://github.com/jonathonball/pwd-shorten), that aims to be much faster on CPU cycles, because it is a compiled binary, nonetheless configurable!
+My directory shortener for bash and zsh prompts inspired by [jonathonball's](https://github.com/jonathonball/pwd-shorten), that aims to be faster on CPU cycles, but still configurable.
 
 ## Requirements
-- g++, or any compiler really
+- g++, or any cpp compiler really
 
 ## Compilation
 - run `make`, this will generate a `pwdshort` executable in `~/.local/bin` which you can reference in your shell of choice
@@ -79,5 +79,3 @@ If you want to display one more character of directories that start with a dot
 #define TRAILINGSIGN '+'
 #define DOTFILES true
 ```
-
-enjoy this! 

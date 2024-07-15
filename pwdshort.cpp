@@ -14,50 +14,50 @@ using namespace std;
 
 void print(string cwd, string home);
 
-int main()
-{
-  string cwd(getenv("PWD"));
-  string home(getenv("HOME"));
+int main() {
+	string cwd(getenv("PWD"));
+	string home(getenv("HOME"));
 
-  if (cwd.compare(home) == 0) {
-    cout << "~";
-    return 0;
-  }
+	if (cwd.compare(home) == 0) {
+		cout << HOMESIGN;
+		return 0;
+	}
 
-  if (cwd.rfind(home, 0) == 0) {
-    cout << HOMESIGN << SEPARATOR;
-    cwd = cwd.substr(home.length() + 1, cwd.length());
-  } else {
-    cout << SEPARATOR;
-    cwd = cwd.substr(1, cwd.length());
-  }
+    stringstream output;
 
-  stringstream dir(cwd);
-  string t;
+	if (cwd.rfind(home, 0) == 0) {
+		output << HOMESIGN << SEPARATOR;
+		cwd = cwd.substr(home.length() + 1, cwd.length());
+	} else {
+		output << SEPARATOR;
+		cwd = cwd.substr(1, cwd.length());
+	}
 
-  int s = 0;
-  for (auto c : cwd)
-    if (c == '/')
-      s++;
+	stringstream dir(cwd);
+	string segment;
 
-  int i = 0;
-  int dot = 0;
-  while (getline(dir, t, SEPARATOR) && i != s) {
+	int s = 0;
+	for (char c : cwd)
+		if (c == '/')
+			s++;
 
-    if (t[0] == '.' && DOTFILES)
-      dot = 1;
+	int i = 0;
+	int dot = 0;
+	while (getline(dir, segment, SEPARATOR) && i != s) {
 
-    if (t.length() > MAXCHAR)
-      cout << t.substr(0, MAXCHAR - 1 + dot) << TRAILINGSIGN
-           << SEPARATOR;
-    else
-      cout << t << SEPARATOR;
+		if (segment[0] == '.' && DOTFILES)
+			dot = 1;
 
-    i++;
-    dot = 0;
-  }
+		if (segment.length() > MAXCHAR)
+			output << segment.substr(0, MAXCHAR - 1 + dot) << TRAILINGSIGN << SEPARATOR;
+		else
+			output << segment << SEPARATOR;
 
-  cout << t;
+		i++;
+		dot = 0;
+	}
 
-  return 0;
+	cout << output.str() << segment;
+
+	return 0;
 }
